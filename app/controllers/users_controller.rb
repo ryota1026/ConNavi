@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     before_action :ensure_correct_user, {only: [:edit,:update]}
 
   def index
-    @users = User.all
+      @users = User.all
   end
 
   def show
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name],
       email: params[:email],
-      image_name: "456880e0.jpg",
+      image_name: "example.png",
       password: params[:password]
       )
 
@@ -89,6 +89,11 @@ class UsersController < ApplicationController
   def likes
     @user = User.find_by(id: params[:id])
     @likes = Like.where(user_id: @user.id)
+  end
+
+  def find
+    @name = params[:name]
+    @user = User.name_like(params[:name])
   end
 
 end

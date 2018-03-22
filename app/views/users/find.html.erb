@@ -1,0 +1,22 @@
+<div class="main users-index">
+  <div class="container">
+    <h1 class="users-heading">ユーザー一覧</h1>
+     <%= form_tag("/users/find") do %>
+      <p>ユーザー名</p>
+        <input name="name" value="<%= @name %>" >
+     <% end %>
+
+     <% if @user %>
+       <% @user.each do |user| %>
+       <div class="users-index-item">
+         <div class="user-left">
+           <img src="<%= "/user_images/#{user.image_name}" %> ">
+         </div>
+         <div class="user-right">
+           <%= link_to(user.name, "/users/#{user.id}") %>
+         </div>
+      </div>
+     <% end %>
+     <% end %>
+  </div>
+</div>
