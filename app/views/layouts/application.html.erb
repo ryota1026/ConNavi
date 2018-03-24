@@ -5,9 +5,23 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+     $('#star_rank').raty({
+      cancel      : true,
+      cancelPlace : 'right',
+      half     : true,
+      starHalf : '<%= asset_path('star-half.png') %>',
+      starOff  : '<%= asset_path('star-off.png') %>',
+      starOn   : '<%= asset_path('star-on.png') %>',
+      cancelOff   : '<%= asset_path('cancel-off.png') %>',
+      cancelOn   : '<%= asset_path('cancel-on.png') %>'
+      });
+    });
+  </script>
   </head>
 
   <body>
@@ -17,6 +31,9 @@
       </div>
       <ul class="header-menus">
         <% if @current_user %>
+        <li>
+          <%= link_to("新着商品", "/posts/index") %>
+        </li>
         <li>
           <%= link_to("投稿一覧", "/posts/index") %>
         </li>
@@ -55,9 +72,6 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-
-    <script src="script.js"></script>
-
     <%= yield %>
   </body>
 </html>

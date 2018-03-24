@@ -9,10 +9,40 @@
               <%= message %>
             </div>
         <% end %>
+
+        <form>
+          <p class="product_category">商品カテゴリ</p>
+          <select name="category">
+            <option value="">水産・畜産・農産加工品</option>
+            <option value="">生鮮・チルド・冷凍食品</option>
+            <option value="">乳油製品・調味料・調味食品</option>
+            <option value="">麺類</option>
+            <option value="">スープ類</option>
+            <option value="">菓子類</option>
+            <option value="">飲料</option>
+            <option value="">酒類</option>
+            <option value="">アイスクリーム・デザート類</option>
+            <option value="">健康食品</option>
+            <option value="">化粧品</option>
+            <option value="">トイレタリー</option>
+            <option value="">文具・仏具・雑貨</option>
+            <option value="">タバコ</option>
+          </select>
+        </form>
+        <p class="product_name">商品名</p>
+          <input name="product_name" value="">
+        <p class="product_image">商品画像</p>
+          <input name="product_image" type="file">
+        <p class="product_price">価格</p>
+          <input name="product_price" value="">
+        <p class="product_score">総合点</p>
+        <div id="star_rank"></div>
+        <p class="product_content">投稿内容</p>
         <textarea name="content"><%= @post.content %></textarea>
         <input type="submit" value="投稿">
        </div>
       </div>
     <% end %>
+
   </div>
 </div>
