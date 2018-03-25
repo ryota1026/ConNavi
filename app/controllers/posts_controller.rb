@@ -15,14 +15,28 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @select = Category.new
   end
 
   def create
-    @post = Post.new(content: params[:content], user_id: @current_user.id)
+    @post = Post.new(
+      content: params[:content],
+      user_id: @current_user.id,
+      product_name: params[:product_name],
+      product_image: params[:product_image],
+      product_price: params[:product_price],
+      product_score: params[:product_score],
+      product_category: params[:product_category]
+      )
     if @post.save
     flash[:notice] ="投稿を作成しました"
     redirect_to("/posts/index")
     else
+    @content = params[:content]
+    @product_name = params[:product_name]
+    @product_price = params[:product_price]
+    @product_score = params[:product_score]
+    @product_category = params[:product_category]
     render("posts/new")
     end
   end

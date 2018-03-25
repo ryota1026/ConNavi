@@ -1,6 +1,7 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
+
     <%= form_tag("/posts/create") do %>
       <div class="form">
        <div class="form-body">
@@ -10,35 +11,39 @@
             </div>
         <% end %>
 
+          <script type="text/javascript">
+            $(function(){
+             $('#star_rank').raty({
+              cancel      : true,
+              cancelPlace : 'right',
+              half     : true,
+              // starHalf : '<%= asset_path('star-half.png') %>',
+              starOff  : '<%= asset_path('star-off.png') %>',
+              starOn   : '<%= asset_path('star-on.png') %>',
+              cancelOff   : '<%= asset_path('cancel-off.png') %>',
+              cancelOn   : '<%= asset_path('cancel-on.png') %>',
+              scoreName :'product_score'
+              });
+            });
+          </script>
+
         <form>
           <p class="product_category">商品カテゴリ</p>
-          <select name="category">
-            <option value="">水産・畜産・農産加工品</option>
-            <option value="">生鮮・チルド・冷凍食品</option>
-            <option value="">乳油製品・調味料・調味食品</option>
-            <option value="">麺類</option>
-            <option value="">スープ類</option>
-            <option value="">菓子類</option>
-            <option value="">飲料</option>
-            <option value="">酒類</option>
-            <option value="">アイスクリーム・デザート類</option>
-            <option value="">健康食品</option>
-            <option value="">化粧品</option>
-            <option value="">トイレタリー</option>
-            <option value="">文具・仏具・雑貨</option>
-            <option value="">タバコ</option>
-          </select>
+          <% @select = Category.new unless @select %>
+          <%= form_for @select do |f| %>
+             <%= f.collection_select :name, Category.all, :id, :name, {} ,{:name => "product_category"} %>
+          <% end %>
         </form>
         <p class="product_name">商品名</p>
-          <input name="product_name" value="">
+          <input name="product_name" value="<%= @product_name %>">
         <p class="product_image">商品画像</p>
-          <input name="product_image" type="file">
-        <p class="product_price">価格</p>
-          <input name="product_price" value="">
+          <input name="product_image" type="file" value="<%= @product_image %>">
+        <p class="product_price">価格(税抜価格)</p>
+          <input name="product_price" value="<%= @product_price %>">
         <p class="product_score">総合点</p>
-        <div id="star_rank"></div>
+        <div id="star_rank" name ="product_score" value="<%= @product_score %>"></div>
         <p class="product_content">投稿内容</p>
-        <textarea name="content"><%= @post.content %></textarea>
+        <textarea name="content" value="<%= @product_content %>"><%= @post.content %></textarea>
         <input type="submit" value="投稿">
        </div>
       </div>
