@@ -62,8 +62,8 @@
 }
 
 .posts-show-item p {
-  font-size: 24px;
-  margin: 20px 0;
+  font-size: 30px;
+  margin: 20px 0px;
 }
 
 .post-time {
@@ -81,6 +81,10 @@
   font-size: 14px;
 }
 
+.post-reply-like {
+  float: left;
+}
+
 /* posts/new ================================ */
 .posts-new textarea {
   font-size: 20px;
@@ -96,8 +100,16 @@
 }
 
 .posts-show-item .fa {
-  font-size: 16px;
+  font-size: 20px;
   margin-right: 3px;
+}
+
+.posts-show-item .fa-reply {
+  margin-left: 5px;
+}
+
+.posts-show-item .fa-heart {
+  margin-left: 20px;
 }
 
 .like-btn {

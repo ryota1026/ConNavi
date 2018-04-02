@@ -28,16 +28,27 @@ class PostsController < ApplicationController
       product_score: params[:product_score],
       product_category: params[:product_category]
       )
+
+    unless @post.save
+      render("posts/new")
+    end
+
+    if params[:product_image]
+      @post.product_image = "#{@post.id}.jpg"
+      product_image = params[:product_image]
+      File.binwrite("public/post_images/#{@post.product_image}",product_image.read)
+    end
+
     if @post.save
-    flash[:notice] ="投稿を作成しました"
-    redirect_to("/posts/index")
+      flash[:notice] ="投稿を作成しました"
+      redirect_to("/posts/index")
     else
-    @content = params[:content]
-    @product_name = params[:product_name]
-    @product_price = params[:product_price]
-    @product_score = params[:product_score]
-    @product_category = params[:product_category]
-    render("posts/new")
+      @content = params[:content]
+      @product_name = params[:product_name]
+      @product_price = params[:product_price]
+      @product_score = params[:product_score]
+      @product_category = params[:product_category]
+      render("posts/new")
     end
   end
 

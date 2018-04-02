@@ -126,7 +126,7 @@
     },
 
     _adjustStarType: function() {
-      var replaces = ['cancelOff', 'cancelOn', 'starHalf', 'starOff', 'starOn'];
+      var replaces = ['cancelOff', 'cancelOn', 'starOff', 'starOn'];
 
       this.opt.path = '';
 
@@ -749,7 +749,6 @@
     scoreName:    'score',
     single:       false,
     space:        true,
-    starHalf:     'star-half.png',
     starOff:      'star-off.png',
     starOn:       'star-on.png',
     starType:     'img',
