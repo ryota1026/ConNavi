@@ -18,9 +18,14 @@
   font-weight: 600;
 }
 
+.post-right .post-user-name {
+  padding-bottom: 3px;
+}
+
 .post-user-name a:hover {
   color: #3ecdc6;
 }
+
 
 .post-left {
   float: left;
@@ -132,6 +137,16 @@
   padding-top: 5px;
 }
 
+
 .post-product_name{
   font-weight: bold;
 }
+
+.post-right img {
+  width:180px;
+  height:180px;
+}
+
+.post-time {
+  float: right;
+  }

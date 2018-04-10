@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
 
-    <%= form_tag("/posts/create",{multipart: true})  do %>
+    <%= form_tag("/posts/create",{multipart: true}) do %>
       <div class="form">
        <div class="form-body">
         <% @post.errors.full_messages.each do |message| %>
@@ -12,11 +12,10 @@
         <% end %>
 
           <script type="text/javascript">
-            $(function(){
+            $(window).ready(function(){
              $('#star_rank').raty({
               cancel      : true,
               cancelPlace : 'right',
-              half     : true,
               starOff  : '<%= asset_path('star-off.png') %>',
               starOn   : '<%= asset_path('star-on.png') %>',
               cancelOff   : '<%= asset_path('cancel-off.png') %>',
@@ -26,13 +25,15 @@
             });
           </script>
 
-        <form>
+          <p class="store_category">対象のコンビニ</p>
+          <% @selects = Store.new %>
+          <% @select = Category.new %>
+          <%= form_for [@selects,@select],:url => {:action => :create} do |f| %>
+             <%= f.collection_select :name, Store.all, :id, :name, {} ,{:name => "store_category"} %>
           <p class="product_category">商品カテゴリ</p>
-          <% @select = Category.new unless @select %>
-          <%= form_for @select do |f| %>
              <%= f.collection_select :name, Category.all, :id, :name, {} ,{:name => "product_category"} %>
           <% end %>
-        </form>
+
         <p class="product_name">商品名</p>
           <input name="product_name" value="<%= @product_name %>">
         <p class="product_image">商品画像</p>
@@ -40,7 +41,7 @@
         <p class="product_price">価格(税抜価格)</p>
           <input name="product_price" value="<%= @product_price %>">
         <p class="product_score">総合点</p>
-        <div id="star_rank" name ="product_score" value="<%= @product_score %>"></div>
+        <div id="star_rank" name="star_rank" value="<%= @product_score %>"></div>
         <p class="product_content">投稿内容</p>
         <textarea name="content" value="<%= @product_content %>"><%= @post.content %></textarea>
         <input type="submit" value="投稿">

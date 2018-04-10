@@ -34,6 +34,12 @@ gem 'hirb'
 
 gem 'hirb-unicode'
 
+gem 'activerecord-import'
+
+gem 'better_errors'
+
+gem 'binding_of_caller'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

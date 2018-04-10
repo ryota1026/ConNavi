@@ -16,12 +16,14 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @select = Category.new
+    @selects = Store.new
   end
 
   def create
     @post = Post.new(
       content: params[:content],
       user_id: @current_user.id,
+      store_category: params[:store_category],
       product_name: params[:product_name],
       product_image: params[:product_image],
       product_price: params[:product_price],
@@ -29,8 +31,11 @@ class PostsController < ApplicationController
       product_category: params[:product_category]
       )
 
+    logger.debug(@post.inspect)
+
     unless @post.save
       render("posts/new")
+      return
     end
 
     if params[:product_image]
@@ -45,6 +50,7 @@ class PostsController < ApplicationController
     else
       @content = params[:content]
       @product_name = params[:product_name]
+      @store_category = params[:selects][:store_category]
       @product_price = params[:product_price]
       @product_score = params[:product_score]
       @product_category = params[:product_category]

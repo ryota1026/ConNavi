@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   validates :user_id, {presence: true}
   validates :product_name, {presence: true}
   validates :product_price, {presence: true}
+  validates :product_score, {presence: true}
 
   def user
     return User.find_by(id: self.user_id)

@@ -27,5 +27,6 @@ Rails.application.routes.draw do
   get "about" => "home#about"
 
   resource :categories
+  resource :stores
 
 end
