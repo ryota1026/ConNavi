@@ -88,4 +88,9 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @search = params[:search]
+    @post = Post.search_like(params[:search])
+  end
+
 end

@@ -6,6 +6,22 @@
   box-shadow: 0 2px 6px #c1ced7;
 }
 
+.posts-index-item .post-product_comment {
+  float: right;
+  margin-right: 150px;
+}
+
+.post-product_comment {
+  padding: 0.5em 1em;
+  font-weight: bold;
+  color: #6091d3;
+  background: #FFF;
+  border: solid 3px #6091d3;
+  border-radius: 10px;
+  height: 190px;
+  width: 500px;
+}
+
 .post-left img {
   width: 50px;
   height: 50px;
@@ -26,6 +42,13 @@
   color: #3ecdc6;
 }
 
+.post-product_name a:hover {
+  color: #3ecdc6;
+}
+
+.store_category a:hover {
+  color: #3ecdc6;
+}
 
 .post-left {
   float: left;
@@ -37,6 +60,42 @@
   width: 90%;
   padding-left: 25px;
   text-align: left;
+}
+
+.product_image {
+  padding-top: 5px;
+}
+
+.product_content {
+  padding-top: 5px;
+}
+
+.product_price {
+  padding-top: 5px;
+}
+
+.post-product_name{
+  margin-bottom: 10px;
+}
+
+.post-right img {
+  width:180px;
+  height:180px;
+}
+
+.post-time {
+  float: right;
+}
+
+.box {
+    padding: 1em 2em;
+    margin: 0.2em 0em 2em 0em;
+    font-weight: bold;
+    border: solid 2px #000000;
+}
+.box input {
+    margin: 0;
+    padding: 0;
 }
 
 /* posts/show ================================ */
@@ -60,6 +119,13 @@
   object-fit: cover;
 }
 
+.posts-show-item .post-show img{
+  width:200px;
+  height:200px;
+  border-radius: 0%;
+  margin-bottom: 15px;
+}
+
 .posts-show-item .post-user-name a {
   vertical-align: middle;
   font-size: 24px;
@@ -73,6 +139,7 @@
 
 .post-time {
   color: #8899a6;
+  margin-left: 20px;
   margin-bottom: 10px;
 }
 
@@ -125,28 +192,3 @@
   color:#ff2581;
 }
 
-.product_image {
-  padding-top: 5px;
-}
-
-.product_content {
-  padding-top: 5px;
-}
-
-.product_price {
-  padding-top: 5px;
-}
-
-
-.post-product_name{
-  font-weight: bold;
-}
-
-.post-right img {
-  width:180px;
-  height:180px;
-}
-
-.post-time {
-  float: right;
-  }

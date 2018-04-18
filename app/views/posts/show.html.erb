@@ -13,6 +13,10 @@
            コメント：<%= @post.content %>
          </p>
 
+          <div class="post-show">
+            <img src="<%= "/post_images/#{@post.product_image}" %>">
+          </div>
+
         <div class="post-time">
           <%= @post.created_at %>
         </div>

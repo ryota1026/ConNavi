@@ -40,6 +40,10 @@ gem 'better_errors'
 
 gem 'binding_of_caller'
 
+gem 'ransack'
+
+gem 'carrierwave'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
