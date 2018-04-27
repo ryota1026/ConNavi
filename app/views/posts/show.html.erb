@@ -5,12 +5,17 @@
         <img src="<%= "/user_images/#{@user.image_name}" %>">
           <%= link_to(@user.name,"/users/#{@user.id}") %>
         </div>
+
+         <div class="post-product_comment2">
+           コメント：<%= @post.content %>
+         </div>
+
          <p>
-           商品名：『<%= @post.product_name %>』
+           コンビニ：<%= @post.store.name %>
          </p>
 
          <p>
-           コメント：<%= @post.content %>
+           商品名：『<%= @post.product_name %>』
          </p>
 
           <div class="post-show">
@@ -21,8 +26,20 @@
           <%= @post.created_at %>
         </div>
 
-        <div class="post-reply-like">
-          <span class="fa fa-reply"></span>
+        <% if Reply.find_by(user_id: @current_user.id,reply_id: @reply)%>
+          <%= link_to("/reply/#{@post.id}/destroy", {method: "post"}) do %>
+            <div class="post-reply-like">
+              <span class="fa fa-reply"></span>
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to("/reply/#{@post.id}/create", {method: "post"}) do %>
+            <div class="post-reply-like">
+              <span class="fa fa-reply"></span>
+            </div>
+          <% end %>
+        <% end %>
+
 
         <% if Like.find_by(user_id: @current_user.id,post_id: @post.id)%>
           <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>

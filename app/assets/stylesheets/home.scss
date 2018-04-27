@@ -308,9 +308,9 @@ header {
 }
 }
 
-.top-wrapper p {
+.top-wrapper h2 {
   opacity: 0.7;
-  font-size: 18px;
+  font-size: 22px;
   margin-bottom: 20px;
 }
 
@@ -353,6 +353,10 @@ header {
 .twitter {
   background-color: #55acee;
 }
+}
+
+.enter .btn{
+  padding: 15px 70px;
 }
 
 .btn {

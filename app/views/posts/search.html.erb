@@ -1,12 +1,13 @@
 <div class="main posts-index">
   <div class="container">
-       <%= form_tag("/posts/search") do %>
+       <%= form_tag("/posts/search",class: "post-box",method: "get") do %>
         <p>検索(ユーザー名、コメント内容)</p>
-          <input class="box" name="search" value="<%= @search %>" >
+          <input class="sbox" name="search" type="text" placeholder="キーワードを入力" value="<%= @search %>" />
+          <input class="sbtn" type="submit" value="検索" />
        <% end %>
 
-    <% if @post  %>
-    <% @post.each do |post| %>
+    <% if @posts %>
+    <% @posts.each do |post| %>
       <div class="posts-index-item">
         <div class="post-left">
           <img src="<%= "/user_images/#{post.user.image_name}" %>">

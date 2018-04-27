@@ -1,8 +1,9 @@
 <div class="main posts-index">
   <div class="container">
-       <%= form_tag("/posts/search") do %>
+       <%= form_tag("/posts/search",class: "post-box",method: "get") do %>
         <p>検索(ユーザー名、コメント内容)</p>
-          <input  class="box" name="search" value="" >
+          <input class="sbox" name="search" type="text" placeholder="キーワードを入力" />
+          <input class="sbtn" type="submit" value="検索" />
        <% end %>
 
     <% @posts.each do |post| %>

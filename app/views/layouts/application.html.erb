@@ -7,12 +7,13 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= favicon_link_tag() %>
   </head>
 
   <body>
     <header>
       <div class="header-logo">
-        <%= link_to("コンナビ！", "/") %>
+        <%= link_to("ConNavi", "/") %>
       </div>
       <ul class="header-menus">
         <% if @current_user %>
@@ -31,13 +32,13 @@
         <% else %>
         <li>
           <% if @current_user %>
-            <%= link_to("コンナビ！", "/posts/index") %>
+            <%= link_to("ConNavi", "/posts/index") %>
           <% else %>
-            <%= link_to("コンナビ！", "/") %>
+            <%= link_to("ConNavi", "/") %>
           <% end %>
         </li>
         <li>
-          <%= link_to("コンナビ！とは", "/about") %>
+          <%= link_to("ConNaviとは", "/about") %>
         </li>
         <li>
           <%= link_to("新規登録", "/signup") %>

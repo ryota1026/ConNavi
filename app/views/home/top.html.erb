@@ -1,8 +1,11 @@
 <div class="top-wrapper">
   <div class="container">
     <h1>『明日のコンビニライフを快適に』</h1>
-      <p>新商品のレビューやお気に入りの商品について、共有しましょう</p>
-      <p><%= button_to "新規登録", {controller: 'users',action: 'new'},{method: :get, class: "btn signup signup-show"} %></p>
+      <h2>新商品のレビューやお気に入りの商品について、共有しましょう</h2>
+      <div class="enter">
+        <p><%= button_to "新規登録", {controller: 'users',action: 'new'},{method: :get, class: "btn signup signup-show"} %></p>
+        <p><%= button_to "ログイン", {controller: 'users',action: 'login'},{method: :get, class: "btn signup signup-show"} %></p>
+      </div>
     <div class="btn facebook"><span class="fa fa-facebook"></span>Facebookで登録</div>
     <div class="btn twitter"><span class="fa fa-twitter"></span>Twitterで登録</div>
   </div>
