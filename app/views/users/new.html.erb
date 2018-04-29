@@ -9,16 +9,26 @@
           </div>
         <% end %>
 
-        <%= form_tag("/users/create") do %>
-          <p>ユーザー名</p>
-            <input name="name" value="<%= @user.name %>">
-          <p>メールアドレス</p>
-            <input name="email" value="<%= @user.email %>">
-            <label for="password">パスワード</label>
-            <input id="password" name="password" type="password" />
-            <label for="password_confirmation">パスワード(確認用)</label>
-            <input id="password_confirmation" name="password_confirmation" type="password" />
-            <input type="submit" value="新規登録">
+        <%= form_for @user , :url => {:action => 'create'} do |f| %>
+          <div class="field">
+            <%= f.label :"名前" %><br>
+            <%= f.text_field :name %>
+          </div>
+          <div class="field">
+            <%= f.label :"メールアドレス" %><br>
+            <%= f.text_field :email %>
+          </div>
+          <div class="field">
+            <%= f.label :"パスワード" %><br>
+            <%= f.password_field :password %>
+          </div>
+          <div class="field">
+            <%= f.label :"パスワード(確認用)" %><br>
+            <%= f.password_field :password_confirmation %>
+          </div>
+          <div class="actions">
+            <%= f.submit :value => "新規登録" %>
+          </div>
         <% end %>
       </div>
     </div>
