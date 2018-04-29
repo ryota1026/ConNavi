@@ -26,21 +26,6 @@
           <%= @post.created_at %>
         </div>
 
-        <% if Reply.find_by(user_id: @current_user.id,reply_id: @reply)%>
-          <%= link_to("/reply/#{@post.id}/destroy", {method: "post"}) do %>
-            <div class="post-reply-like">
-              <span class="fa fa-reply"></span>
-            </div>
-          <% end %>
-        <% else %>
-          <%= link_to("/reply/#{@post.id}/create", {method: "post"}) do %>
-            <div class="post-reply-like">
-              <span class="fa fa-reply"></span>
-            </div>
-          <% end %>
-        <% end %>
-
-
         <% if Like.find_by(user_id: @current_user.id,post_id: @post.id)%>
           <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
             <span class="fa fa-heart like-btn-unlike"></span>

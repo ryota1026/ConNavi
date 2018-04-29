@@ -9,10 +9,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    @reply = Reply.find_by(user_id: params[:id])
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
-    @reply_count = Reply.where(reply_id: @reply).count
   end
 
   def new
@@ -96,10 +94,10 @@ class PostsController < ApplicationController
     @posts = @post.all.order(created_at: :desc)
   end
 
-  def reply
-    @user = User.find_by(id: params[:id])
-    @post = Post.find_by #途中です
-    @reply = Reply.where(user_id: @user.id)
-  end
+  # def reply
+  #   @user = User.find_by(id: params[:id])
+  #   @post = Post.find_by #途中です
+  #   @reply = Reply.where(user_id: @user.id)
+  # end
 
 end

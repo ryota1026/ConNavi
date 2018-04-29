@@ -96,4 +96,9 @@ class UsersController < ApplicationController
     @user = User.name_like(params[:name])
   end
 
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
 end

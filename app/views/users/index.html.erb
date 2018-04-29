@@ -1,10 +1,11 @@
 <div class="main users-index">
   <div class="container">
     <h1 class="users-heading">ユーザー一覧</h1>
-     <%= form_tag("/users/find") do %>
-      <p>ユーザー名</p>
-        <input name="name" value="<%= @users.name %>" >
-     <% end %>
+      <%= form_tag("/users/find",class: "post-box",method: "get") do %>
+        <p>検索(ユーザー名)</p>
+          <input class="sbox" name="name" type="text" placeholder="ユーザー名を入力" />
+          <input class="sbtn" type="submit" value="検索" />
+       <% end %>
 
      <% @users.each do |user| %>
       <div class="users-index-item">

@@ -265,7 +265,7 @@ header {
 
 /* top ================================ */
 .top-wrapper {
-  padding: 180px 0 180px 0;
+  padding: 180px 0 600px 0;
   background-image: url(/about-top5.jpg);
   background-size: cover;
   color: white;
@@ -318,7 +318,7 @@ header {
 .top-wrapper p {
   opacity: 0.7;
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 }
 
@@ -444,20 +444,29 @@ header {
 }
 }
 
+.about-title {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
 .about-sub {
   text-align: center;
 }
 
-@media screen and (max-width:375px) {
-.about-sub {
+.about-sub2 {
   text-align: center;
+  margin-bottom: 100px;
 }
+
+.about-text {
+  margin-top: 70px;
 }
 
 .about-img1 {
   width: 47%;
   height: 47%;
   margin: 5px;
+  border: solid;
 }
 
 @media screen and (max-width:375px) {
@@ -472,6 +481,7 @@ header {
   width: 47%;
   height: 47%;
   margin: 5px;
+  border: solid;
 }
 
 @media screen and (max-width:375px) {
@@ -481,6 +491,21 @@ header {
   margin: 5px;
 }
 }
+
+.about-img4 {
+  width: 47%;
+  height: 47%;
+  margin: 5px;
+  border: solid;
+}
+
+.about-img5 {
+  width: 47%;
+  height: 47%;
+  margin: 5px;
+  border: solid;
+}
+
 
 /* フォーム================================ */
 .form {
