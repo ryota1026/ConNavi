@@ -6,13 +6,13 @@
           <%= link_to(@user.name,"/users/#{@user.id}") %>
         </div>
 
-         <div class="post-product_comment2">
-           コメント：<%= @post.content %>
-         </div>
-
          <p>
            コンビニ：<%= @post.store.name %>
          </p>
+
+         <div class="post-product_comment2">
+           コメント：<br><%= @post.content %>
+         </div>
 
          <p>
            商品名：『<%= @post.product_name %>』

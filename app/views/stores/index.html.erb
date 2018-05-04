@@ -1,0 +1,18 @@
+<div class="main users-index">
+  <div class="container">
+    <h1 class="users-heading">コンビニ一覧</h1>
+      <%= form_tag("/users/find",class: "post-box",method: "get") do %>
+        <p>検索(コンビニ名)</p>
+          <input class="sbox" name="name" type="text" placeholder="コンビニ名を入力" />
+          <input class="sbtn" type="submit" value="検索" />
+       <% end %>
+
+     <% @stores.each do |store| %>
+      <div class="stores-index-item">
+      <div class="store-left">
+        <%= link_to(store.name, "/stores/#{store.id}") %>
+      </div>
+      </div>
+      <% end %>
+  </div>
+</div>
