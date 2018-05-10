@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  has_many :stores
   validates :content, {presence: true, length: {maximum: 140}}
   validates :user_id, {presence: true}
   validates :product_name, {presence: true}
