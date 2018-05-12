@@ -1,7 +1,7 @@
 <div class="main posts-index">
   <div class="container">
        <%= form_tag("/posts/search",class: "post-box",method: "get") do %>
-        <p>検索(ユーザー名、コメント内容)</p>
+        <p>検索(ユーザー名、商品名、コメント内容)</p>
           <input class="sbox" name="search" type="text" placeholder="キーワードを入力" />
           <input class="sbtn" type="submit" value="検索" />
        <% end %>
@@ -34,7 +34,22 @@
           <div>
           <img src="<%= "/post_images/#{post.product_image}" %>">
           </div>
-        </div>
+          </div>
+
+          <% if Like.find_by(user_id: @current_user.id,post_id: post.id)%>
+              <%= link_to("/likes/#{post.id}/destroies", {method: "post"}) do %>
+                <span class="fa fa-heart like-btn-unlike"></span>
+              <% end %>
+            <% else %>
+              <%= link_to("/likes/#{post.id}/creates", {method: "post"}) do %>
+                <span class="fa fa-heart like-btn"></span>
+              <% end %>
+          <% end %>
+
+          <% if @like_post = Like.where(post_id: post.id) %>
+            <%= @like_post.count %>
+          <% end %>
+
       </div>
     <% end %>
   </div>

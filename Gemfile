@@ -30,10 +30,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'hirb'
-
-gem 'hirb-unicode'
-
 gem 'activerecord-import'
 
 gem 'better_errors'
@@ -48,6 +44,8 @@ gem 'devise'
 
 gem 'validates_email_format_of'
 
+gem 'awesome_print'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -57,6 +55,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  gem 'hirb'
+  gem 'hirb-unicode'
 
   gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
   gem 'pry-doc'    # methodを表示

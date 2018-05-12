@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
+    @post_like = Like.pluck(:post_id)
   end
 
   def show
@@ -94,10 +95,5 @@ class PostsController < ApplicationController
     @posts = @post.all.order(created_at: :desc)
   end
 
-  # def reply
-  #   @user = User.find_by(id: params[:id])
-  #   @post = Post.find_by #途中です
-  #   @reply = Reply.where(user_id: @user.id)
-  # end
 
 end

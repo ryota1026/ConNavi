@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   get "users/:id/reply" => "users#reply"
 
   post "likes/:post_id/create" => "likes#create"
+  post "likes/:post_id/creates" => "likes#creates"
   post "likes/:post_id/destroy" => "likes#destroy"
+  post "likes/:post_id/destroies" => "likes#destroies"
 
   post "reply/:reply_id/create" => "reply#create"
   post "reply/:reply_id/destroy" => "reply#destroy"
