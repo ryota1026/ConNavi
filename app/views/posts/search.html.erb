@@ -30,9 +30,12 @@
           <div class="post-product_name">
             商品名：『<%= link_to(post.product_name, "/posts/#{post.id}") %>』<br>
           </div>
-          <div>
-          <img src="<%= "/post_images/#{post.product_image}" %>">
-          </div>
+
+          <% if post.product_image %>
+            <div>
+              <img src="<%= "/post_images/#{post.product_image}" %>">
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>

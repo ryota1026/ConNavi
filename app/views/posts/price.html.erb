@@ -1,0 +1,67 @@
+<div class="main posts-index">
+  <div class="container">
+       <%= form_tag("/posts/search",class: "post-box",method: "get") do %>
+        <p>検索(ユーザー名、商品名、コメント内容)</p>
+          <input class="sbox" name="search" type="text" placeholder="キーワードを入力" />
+          <input class="sbtn" type="submit" value="検索" />
+       <% end %>
+
+    <% @price.each do |price| %>
+      <div class="posts-index-item">
+        <div class="post-left">
+          <%= link_to "/users/#{price.user.id}" do %>
+            <%= image_tag "/user_images/#{price.user.image_name}" %>
+          <% end %>
+        </div>
+
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(price.user.name, "/users/#{price.user.id}") %>
+            <span class="post-time"><%= time_ago_in_words(price.created_at) %></span>
+          </div>
+
+          <div class="store_category">
+            コンビニ：<%= link_to(price.store.name,"/stores/#{price.store_category}") %>
+          </div>
+
+          <div class="post-product_comment">
+            コメント：<br><%= link_to(price.content, "/posts/#{price.id}") %>
+          </div>
+
+          <div class="post-product_name">
+            商品名：『<%= link_to(price.product_name, "/posts/#{price.id}") %>』<br>
+          </div>
+
+          <div class="post-product_price">
+            価格：<%= link_to(price.product_price, "/posts/#{price.product_price}") %>円<br>
+          </div>
+
+          <div class="post-product_score">
+            総合点：<%= link_to price.product_score, { :controller => "posts", :action => "show" ,:id => "#{price.id}" }, { :class => "btn-large" }  %>
+          </div>
+
+          <% if price.product_image %>
+              <div>
+                <img src="<%= "/post_images/#{price.product_image}" %>">
+              </div>
+          <% end %>
+          </div>
+
+          <% if Like.find_by(user_id: @current_user.id,post_id: price.id)%>
+              <%= link_to("/likes/#{price.id}/destroies", {method: "post"}) do %>
+                <span class="fa fa-heart like-btn-unlike"></span>
+              <% end %>
+            <% else %>
+              <%= link_to("/likes/#{price.id}/creates", {method: "post"}) do %>
+                <span class="fa fa-heart like-btn"></span>
+              <% end %>
+          <% end %>
+
+          <% if @like_post = Like.where(post_id: price.id) %>
+            <%= @like_post.count %>
+          <% end %>
+
+      </div>
+    <% end %>
+  </div>
+</div>

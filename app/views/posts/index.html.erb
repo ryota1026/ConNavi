@@ -25,15 +25,31 @@
           </div>
 
           <div class="post-product_comment">
-            コメント：<br><%= link_to(post.content, "/posts/#{post.id}") %>
+            コメント：<br><%= link_to(post.content, "/posts/#{post.id}") %><br>
+              <% if post.product_image %>
+                  <%= link_to "もっと読む", { :controller => "posts", :action => "show" ,:id => "#{post.id}" }, { :class => "post-index-to-show" }  %>
+                <% else %>
+                  <%= link_to "もっと読む", { :controller => "posts", :action => "show_noimage" ,:id => "#{post.id}" }, { :class => "post-index-to-show2" }  %>
+                <% end %>
           </div>
 
           <div class="post-product_name">
             商品名：『<%= link_to(post.product_name, "/posts/#{post.id}") %>』<br>
           </div>
-          <div>
-          <img src="<%= "/post_images/#{post.product_image}" %>">
+
+          <div class="post-product_price">
+            価格：<%= link_to(post.product_price, "/posts/price/#{post.product_price}") %>円<br>
           </div>
+
+          <div class="post-product_score">
+            総合点：<%= link_to post.product_score, { :controller => "posts", :action => "show" ,:id => "#{post.id}" }, { :class => "btn-large" }  %>
+          </div>
+
+          <% if post.product_image %>
+              <div>
+                <img src="<%= "/post_images/#{post.product_image}" %>">
+              </div>
+          <% end %>
           </div>
 
           <% if Like.find_by(user_id: @current_user.id,post_id: post.id)%>

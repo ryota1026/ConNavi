@@ -9,8 +9,41 @@
                 <%= message %>
               </div>
             <% end %>
-          <textarea name="content"><%= @post.content %></textarea>
-          <input type="submit" value="保存">
+
+          <script type="text/javascript">
+            $(window).ready(function(){
+             $('#star_rank').raty({
+              cancel      : true,
+              cancelPlace : 'right',
+              starOff  : '<%= asset_path('star-off.png') %>',
+              starOn   : '<%= asset_path('star-on.png') %>',
+              cancelOff   : '<%= asset_path('cancel-off.png') %>',
+              cancelOn   : '<%= asset_path('cancel-on.png') %>',
+              scoreName :'product_score'
+              });
+            });
+          </script>
+
+          <p class="store_category">対象のコンビニ</p>
+          <% @selects = Store.new %>
+          <% @select = Category.new %>
+          <%= form_for [@selects,@select],:url => {:action => :create} do |f| %>
+             <%= f.collection_select :name, Store.all, :id, :name, {} ,{:name => "store_category"} %>
+          <p class="product_category">商品カテゴリ</p>
+             <%= f.collection_select :name, Category.all, :id, :name, {} ,{:name => "product_category"} %>
+          <% end %>
+
+        <p class="product_name">商品名</p>
+          <input name="product_name" value="<%= @post.product_name %>">
+        <p class="product_image">商品画像</p>
+          <input name="product_image" type="file" value="<%= @post.product_image %>">
+        <p class="product_price">価格(税抜価格)</p>
+          <input name="product_price" value="<%= @post.product_price %>">
+        <p class="product_score">総合点</p>
+        <div id="star_rank" name="star_rank" value="<%= @post.product_score %>"></div>
+        <p class="product_content">投稿内容</p>
+        <textarea name="content"><%= @post.content %></textarea>
+        <input type="submit" value="保存">
         </div>
       </div>
     <% end %>

@@ -10,27 +10,27 @@
            コンビニ：<%= @post.store.name %>
          </p>
 
-         <div class="post-product_comment2">
+         <div class="post-product_comment3">
            コメント：<br><%= @post.content %>
          </div>
 
-         <p class="post-product">
-          商品名：『<%= link_to @post.product_name, { :controller => "posts", :action => "search" ,:search => "#{@post.product_name}" }, { :class => "btn-large2" }  %>』
+         <p class="post-product2">
+           商品名：『<%= @post.product_name %>』
          </p>
 
-         <div class="post-product_price2">
+         <div class="post-product_price3">
            価格：<%= link_to @post.product_price, { :controller => "posts", :action => "price" ,:product_price => "#{@post.product_price}" }, { :class => "btn-large2" }  %>円
          </div>
 
-         <div class="post-product_score2">
+         <div class="post-product_score3">
            総合点：<%= link_to @post.product_score, { :controller => "posts", :action => "show" ,:id => "#{@post.id}" }, { :class => "btn-large" }  %>
          </div>
 
-         <% if @post.product_image %>
-           <div class="post-show">
-             <img src="<%= "/post_images/#{@post.product_image}" %>">
-           </div>
-         <% end %>
+          <% if @post.product_image %>
+            <div class="post-show">
+              <img src="<%= "/post_images/#{@post.product_image}" %>">
+            </div>
+          <% end %>
 
         <div class="post-time">
           <%= @post.created_at %>

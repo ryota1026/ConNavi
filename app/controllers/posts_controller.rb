@@ -14,6 +14,12 @@ class PostsController < ApplicationController
     @likes_count = Like.where(post_id: @post.id).count
   end
 
+  def show_noimage
+    @post = Post.find_by(id: params[:id])
+    @user = @post.user
+    @likes_count = Like.where(post_id: @post.id).count
+  end
+
   def new
     @post = Post.new
     @select = Category.new
@@ -95,5 +101,9 @@ class PostsController < ApplicationController
     @posts = @post.all.order(created_at: :desc)
   end
 
+  def price
+    @price = Post.where(product_price: params[:product_price])
+    @post_like = Like.pluck(:post_id)
+  end
 
 end
