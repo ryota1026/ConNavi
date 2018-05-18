@@ -41,6 +41,9 @@ Rails.application.routes.draw do
 
   get "/" => "home#top"
   get "about" => "home#about"
+  get "terms" => "home#terms"
+  get "owner" => "home#owner"
+  get "help" => "home#help"
 
   resource :categories
   resource :stores

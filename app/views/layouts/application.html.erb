@@ -50,6 +50,23 @@
       </ul>
     </header>
 
+      <footer>
+        <ul class="footer">
+          <li>
+            <%= link_to("よくある質問", "/help") %>
+          </li>
+          <li class="footer">
+            <%= link_to("利用規約", "/terms") %>
+          </li>
+          <li class="footer">
+            <%= link_to("プライバシーポリシー", "/login") %>
+          </li>
+          <li class="footer">
+            <%= link_to("運営会社", "/owner") %>
+          </li>
+        </ul>
+      </footer>
+
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
