@@ -22,7 +22,6 @@ test:
 
 production:
  <<: *default
- url: <%= ENV['postgres://keltchlnegodhz:f7727ac6be1d874abb32e5aea793ae4d71f9878e902fe99917cd7361ffb94af4@ec2-54-204-46-236.compute-1.amazonaws.com:5432/d6nvo5cqds9rqo'] %>
  adapter: postgresql
  database: db/production.pg
  encoding: unicode

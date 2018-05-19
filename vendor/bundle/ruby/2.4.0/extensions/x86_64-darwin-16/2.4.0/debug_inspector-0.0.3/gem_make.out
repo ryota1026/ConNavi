@@ -1,0 +1,15 @@
+current directory: /Users/liangtai1/tweet_app/vendor/bundle/ruby/2.4.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+/Users/liangtai1/.rvm/rubies/ruby-2.4.1/bin/ruby -r ./siteconf20180519-6712-1aovbs7.rb extconf.rb
+creating Makefile
+
+current directory: /Users/liangtai1/tweet_app/vendor/bundle/ruby/2.4.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /Users/liangtai1/tweet_app/vendor/bundle/ruby/2.4.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/liangtai1/tweet_app/vendor/bundle/ruby/2.4.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 debug_inspector.bundle ./.gem.20180519-6712-1x1t1ge
