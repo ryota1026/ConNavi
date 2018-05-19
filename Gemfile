@@ -59,7 +59,7 @@ group :development, :test do
   gem 'pry-doc'    # methodを表示
   gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
   gem 'pry-stack_explorer' # スタックをたどれる
-  gem 'sqlite3', '1.3.13', groups: %w(test development), require: false
+  gem 'sqlite3', '1.3.13', group: :development
 end
 
 group :development do
@@ -72,7 +72,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg', groups: %w(production), require: false
+  gem 'pg', group: :production
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
