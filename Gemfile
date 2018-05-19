@@ -44,6 +44,10 @@ gem 'validates_email_format_of'
 
 gem 'awesome_print'
 
+gem 'sqlite3', group: [:development, :test]
+
+gem 'pg', group: :production
+
 # gem 'capistrano-rails', group: :development
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -59,7 +63,6 @@ group :development, :test do
   gem 'pry-doc'    # methodを表示
   gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
   gem 'pry-stack_explorer' # スタックをたどれる
-  gem 'sqlite3', '1.3.13', group: :development
 end
 
 group :development do
@@ -72,7 +75,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg', group: :production
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
