@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   validates :product_name, {presence: true}
   validates :product_price, {presence: true}
   validates :product_score, {presence: true}
+  validates :store_category, {presence: true}
 
   scope :search_like, -> search { where('content like ? or product_name like ?', "%#{search}%","%#{search}%") if search.present? }
 
