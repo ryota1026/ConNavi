@@ -44,9 +44,7 @@ gem 'validates_email_format_of'
 
 gem 'awesome_print'
 
-gem 'sqlite3', '1.3.13',groups: %w(test development), require: false
-
-gem 'pg', groups: %w(production), require: false
+gem 'pg'
 
 # gem 'capistrano-rails', group: :development
 group :development, :test do
@@ -63,7 +61,6 @@ group :development, :test do
   gem 'pry-doc'    # methodを表示
   gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
   gem 'pry-stack_explorer' # スタックをたどれる
-  gem 'sqlite3','1.3.13'
 end
 
 group :development do

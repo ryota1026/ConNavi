@@ -12,13 +12,10 @@ default: &default
 
 development:
   <<: *default
-  database: postgresql
-  adapter: postgresql
-  username: pg_app
-  password: pg_app
-  encoding: unicode
+  database: postgresql_development
+  username: postgresql
+  password: postgresql
   pool: 5
-
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
