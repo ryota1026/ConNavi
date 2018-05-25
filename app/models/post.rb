@@ -1,5 +1,4 @@
 class Post < ApplicationRecord
-  has_many :stores, dependent: :destroy
   has_many :likes, dependent: :destroy
   belongs_to :user, dependent: :destroy
   validates :content, {presence: true, length: {maximum: 140}}
