@@ -7,30 +7,26 @@
 default: &default
   adapter: postgresql
   pool: 5
-  encoding: unicode
+  encoding: UTF8
   timeout: 5000
 
 development:
   <<: *default
   database: postgresql_development
-  username: postgresql
+  username: liangtai1
   password: postgresql
-  pool: 5
+  host: localhost
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
   database: postgresql
-  pool: 5
+  host: localhost
 
 production:
   <<: *default
-  adapter: postgresql
   url: <%= ENV['DATABASE_URL'] %>
   database: d6nvo5cqds9rqo
-  encoding: unicode
   username: keltchlnegodhz
   password: f7727ac6be1d874abb32e5aea793ae4d71f9878e902fe99917cd7361ffb94af4
-  pool: 5
+  port: 5432
+  host: ec2-54-204-46-236.compute-1.amazonaws.com
